@@ -1,44 +1,47 @@
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerLayoutMain"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/frameLayoutMenu"
-        android:layout_width="300dp"
-        android:layout_height="match_parent" />
-
-    <LinearLayout
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayoutMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/frameLayoutPlayer"
         android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:background="@android:color/white"
+        android:baselineAligned="false">
 
         <FrameLayout
-            android:id="@+id/frameLayoutHeader"
+            android:id="@+id/frameLayoutMenu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice" />
 
-        <FrameLayout
-            android:id="@+id/frameLayoutMain"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <FrameLayout
+                android:id="@+id/frameLayoutMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
 
     <FrameLayout
         android:id="@+id/frameLayoutPlayer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Main"
-            android:id="@+id/textView2"
-            android:layout_gravity="center" />
-    </FrameLayout>
-
-</android.support.v4.widget.DrawerLayout>
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+</RelativeLayout>

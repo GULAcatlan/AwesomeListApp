@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tag_fragment_header">FragmentHeader</string>
+    <string name="tag_fragment_menu">FragmentMenu</string>
+    <string name="tag_fragment_player">FragmentPlayer</string>
+</resources>

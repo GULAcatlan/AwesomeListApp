@@ -1,59 +1,79 @@
 package com.awsmsoft.awesomelistapp.activities;
 
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
 
 import com.awsmsoft.awesomelistapp.R;
+import com.awsmsoft.awesomelistapp.fragments.tutorial.HomeTutorialFragment;
+import com.awsmsoft.awesomelistapp.fragments.tutorial.ProfileTutorialFragment;
 
-public class TutorialActivity extends FragmentActivity {
-
-    FragmentPagerAdapter adapterViewPager;
+public class TutorialActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
-        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new PageAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+
+        initViews();
     }
 
-    public static class PageAdapter extends FragmentPagerAdapter{
-        private static int NUM_ITEMS = 2;
+    private void initViews() {
+        Fragment[] fragments = new Fragment[]{
+                HomeTutorialFragment.getInstance(),
+                ProfileTutorialFragment.getInstance()
+        };
 
+        ViewPager viewPager = (ViewPager) findViewById(R.id.tutorialViewPager);
+        viewPager.setAdapter(new TutorialPagerAdapter(getSupportFragmentManager(), fragments));
+        viewPager.setOnPageChangeListener(this);
+    }
 
-        public PageAdapter(FragmentManager fragmentManager){
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    /**
+     * Inner class that is only used at this activity, no need to use in another place
+     */
+    private class TutorialPagerAdapter extends FragmentPagerAdapter {
+        private SparseArray<Fragment> registeredFragments;
+
+        public TutorialPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
+            registeredFragments = new SparseArray<>();
         }
 
-
-
-        @Override
-        public int getCount(){
-            return NUM_ITEMS;
-        }
-
-        @Override
-        public Fragment getItem(int position){
-            switch(position){
-                case 0:
-                    return Tutorial1.newInstance(0,"Page #1");
-                case 1:
-                    return Tutorial2.newInstance(1,"Page #2");
-                default:
-                    return null;
+        public TutorialPagerAdapter(FragmentManager fragmentManager, Fragment[] fragments) {
+            this(fragmentManager);
+            for (int i = 0; i < fragments.length; i++) {
+                registeredFragments.put(i, fragments[i]);
             }
         }
 
         @Override
-        public CharSequence getPageTitle(int position){
-            return "Page " + position;
+        public Fragment getItem(int position) {
+            return registeredFragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return registeredFragments.size();
         }
     }
-
-
 }

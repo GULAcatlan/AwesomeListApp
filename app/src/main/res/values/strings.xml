@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">AwesomeListApp</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_tutorial">TutorialActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="preferences">ListPreferences</string>
 </resources>

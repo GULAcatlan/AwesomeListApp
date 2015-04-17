@@ -45,7 +45,6 @@ public class SplashActivity extends Activity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putBoolean(getString(R.string.appInstalled),true);
                     editor.apply();
-
                     finish();
                 }
             };

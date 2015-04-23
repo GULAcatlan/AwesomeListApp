@@ -40,7 +40,7 @@ public class StartTutorialFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("someInt");
-        title = getArguments().getString("someString1");
+        title = getArguments().getString("someTitle");
     }
 
     @Override

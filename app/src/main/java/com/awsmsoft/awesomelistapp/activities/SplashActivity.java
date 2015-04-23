@@ -29,25 +29,25 @@ public class SplashActivity extends Activity {
                         }
                     }
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 } finally {
-                    SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences),MODE_PRIVATE);
-                    boolean isInstalled = preferences.getBoolean(getString(R.string.appInstalled),false);
+                    SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences), MODE_PRIVATE);
+                    boolean isInstalled = preferences.getBoolean(getString(R.string.appInstalled), false);
 
                     if (isInstalled) {
-                        startActivity(new Intent(SplashActivity.this,
-                                MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     } else {
-                        startActivity(new Intent(SplashActivity.this,
-                                TutorialActivity.class));
+                        startActivity(new Intent(SplashActivity.this, TutorialActivity.class));
                     }
 
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean(getString(R.string.appInstalled),true);
+                    editor.putBoolean(getString(R.string.appInstalled), true);
                     editor.apply();
                     finish();
                 }
-            };
+            }
+
+            ;
         };
         splashTread.start();
     }

@@ -11,6 +11,7 @@ import android.util.SparseArray;
 import com.awsmsoft.awesomelistapp.R;
 import com.awsmsoft.awesomelistapp.fragments.tutorial.HomeTutorialFragment;
 import com.awsmsoft.awesomelistapp.fragments.tutorial.ProfileTutorialFragment;
+import com.awsmsoft.awesomelistapp.fragments.tutorial.StartTutorialFragment;
 
 public class TutorialActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
 
@@ -24,8 +25,9 @@ public class TutorialActivity extends FragmentActivity implements ViewPager.OnPa
 
     private void initViews() {
         Fragment[] fragments = new Fragment[]{
-                HomeTutorialFragment.getInstance(),
-                ProfileTutorialFragment.getInstance()
+                StartTutorialFragment.getInstance(0, "Start"),
+                HomeTutorialFragment.getInstance(1, "Home"),
+                ProfileTutorialFragment.getInstance(2, "Profile")
         };
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.tutorialViewPager);

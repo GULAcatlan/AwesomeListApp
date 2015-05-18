@@ -27,7 +27,7 @@ public class ProfileTutorialFragment extends Fragment {
 
     public static Fragment getInstance() {
         if (mInstance == null) {
-            mInstance = new ProfileTutorialFragment();
+            mInstance = newInstance(1,"Tutorial");
         }
 
         return mInstance;

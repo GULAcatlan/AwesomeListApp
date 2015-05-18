@@ -1,12 +1,7 @@
 package com.awsmsoft.awesomelistapp.activities;
 
-<<<<<<< HEAD
-import android.app.Activity;
-import android.os.Bundle;
-=======
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
->>>>>>> 35192baf7c6aa992975fc7fd666d022829125e7f
 
 import com.awsmsoft.awesomelistapp.R;
 import com.awsmsoft.awesomelistapp.fragments.HeaderFragment;

@@ -26,7 +26,7 @@ public class HomeTutorialFragment extends Fragment {
 
     public static Fragment getInstance() {
         if (mInstance == null) {
-            mInstance = new HomeTutorialFragment(); //TODO: Set to a custom constructor where the arguments are passed
+            mInstance = newInstance(0, "HOME");
         }
 
         return mInstance;

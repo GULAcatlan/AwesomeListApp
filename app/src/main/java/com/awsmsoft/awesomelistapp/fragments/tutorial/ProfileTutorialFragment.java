@@ -16,18 +16,15 @@ public class ProfileTutorialFragment extends Fragment {
 
     private static ProfileTutorialFragment mInstance;
 
-    public static ProfileTutorialFragment newInstance(int page, String title) {
-        ProfileTutorialFragment profileTutorialFragment = new ProfileTutorialFragment();
-        Bundle args = new Bundle();
-        args.putInt("someInt", page);
-        args.putString("someTitle", title);
-        profileTutorialFragment.setArguments(args);
-        return profileTutorialFragment;
-    }
-
-    public static Fragment getInstance() {
+    public static Fragment getInstance(int page, String title) {
         if (mInstance == null) {
-            mInstance = newInstance(1,"Tutorial");
+            mInstance = new ProfileTutorialFragment();
+
+            Bundle args = new Bundle();
+            args.putInt("someInt", page);
+            args.putString("someTitle", title);
+
+            mInstance.setArguments(args);
         }
 
         return mInstance;

@@ -46,13 +46,13 @@ public class TutorialActivity extends FragmentActivity implements ViewPager.OnPa
     @Override
     public void onPageSelected(int position) {
         if (position == totalSections) {
-            SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences),MODE_PRIVATE);
+            SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences), MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
 
             editor.putBoolean(getString(R.string.appInstalled), true);
             editor.apply();
 
-            Intent main = new Intent(this,MainActivity.class);
+            Intent main = new Intent(this, MainActivity.class);
             //Do stuff
             startActivity(main);
             finish();

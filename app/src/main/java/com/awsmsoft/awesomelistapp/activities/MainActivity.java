@@ -26,7 +26,6 @@ public class MainActivity extends ActionBarActivity {
         Helpers.fragmentChooserWithoutAddToBackStack(R.id.frameLayoutHeader, header, getSupportFragmentManager(), getString(R.string.tag_fragment_header));
         Helpers.fragmentChooserWithoutAddToBackStack(R.id.frameLayoutMenu, menu, getSupportFragmentManager(), getString(R.string.tag_fragment_menu));
         Helpers.fragmentChooserWithoutAddToBackStack(R.id.frameLayoutHeader, player, getSupportFragmentManager(), getString(R.string.tag_fragment_player));
-
     }
 
     @Override

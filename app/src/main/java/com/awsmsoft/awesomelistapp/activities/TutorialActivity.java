@@ -35,8 +35,17 @@ public class TutorialActivity extends FragmentActivity implements ViewPager.OnPa
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.tutorialViewPager);
         viewPager.setAdapter(new TutorialPagerAdapter(getSupportFragmentManager(), fragments));
-        viewPager.setOnPageChangeListener(this);
+        viewPager.addOnPageChangeListener(this);
     }
+
+    @Override
+    protected void onDestroy() {
+        ((ViewPager)findViewById(R.id.tutorialViewPager)).removeOnPageChangeListener(this);
+
+        super.onDestroy();
+    }
+
+
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
